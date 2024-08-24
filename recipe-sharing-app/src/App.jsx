@@ -5,8 +5,7 @@ import RecipeList from './components/RecipeList';
 import FavoritesList from './components/FavoritesList';
 import AddRecipeForm from './components/AddRecipeForm';
 import RecommendationsList from './components/RecommendationsList';
-import DeleteRecipeButton from './components/DeleteRecipeButton'; // Assuming you have this component
-
+import RecipeDetails from './components/RecipeDetails';
 function App() {
   return (
     <Router>
@@ -18,8 +17,7 @@ function App() {
           <Route path="/favorites" element={<FavoritesList />} />
           <Route path="/recommendations" element={<RecommendationsList />} />
           <Route path="/recipes" element={<RecipeList />} />
-          {/* Example route for DeleteRecipeButton */}
-          <Route path="/delete/:id" element={<DeleteRecipeButton />} />
+          <Route path="/recipe-detail" element={<RecipeDetails />} />
         </Routes>
       </div>
     </Router>
