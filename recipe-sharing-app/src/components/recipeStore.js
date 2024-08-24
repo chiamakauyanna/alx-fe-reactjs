@@ -3,6 +3,7 @@ import { create } from 'zustand';
 const useRecipeStore = create((set) => ({
   recipes: [],
   favorites: [],
+  searchTerm: '', // Initial state for search term
   
   addRecipe: (recipe) =>
     set((state) => ({
@@ -44,6 +45,11 @@ const useRecipeStore = create((set) => ({
       );
       return { recommendations: recommended };
     }),
+
+  setSearchTerm: (term) =>
+    set(() => ({
+      searchTerm: term, // Updates the search term state
+    })),
 }));
 
 export default useRecipeStore;
