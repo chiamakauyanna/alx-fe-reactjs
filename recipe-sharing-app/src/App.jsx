@@ -6,22 +6,23 @@ import FavoritesList from './components/FavoritesList';
 import AddRecipeForm from './components/AddRecipeForm';
 import RecommendationsList from './components/RecommendationsList';
 import RecipeDetails from './components/RecipeDetails';
+
 function App() {
-  return (
-    <Router>
-      <div>
-        <h1>Recipe Sharing App</h1>
-        <SearchBar />
-        <Routes>
-          <Route path="/" element={<AddRecipeForm />} />
-          <Route path="/favorites" element={<FavoritesList />} />
-          <Route path="/recommendations" element={<RecommendationsList />} />
-          <Route path="/recipes" element={<RecipeList />} />
-          <Route path="/recipe-detail" element={<RecipeDetails />} />
-        </Routes>
-      </div>
-    </Router>
-  );
+    return (
+        <Router>
+            <div>
+                <h1>Recipe Sharing App</h1>
+                <SearchBar />
+                <Routes>
+                    <Route path="/" element={<RecipeList />} />
+                    <Route path="/add-recipe" element={<AddRecipeForm />} />
+                    <Route path="/favorites" element={<FavoritesList />} />
+                    <Route path="/recommendations" element={<RecommendationsList />} />
+                    <Route path="/recipe/:id" element={<RecipeDetails />} />
+                </Routes>
+            </div>
+        </Router>
+    );
 }
 
 export default App;
