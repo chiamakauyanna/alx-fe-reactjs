@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
 
 const RegistrationForm = () => {
-  const [formData, setFormData] = useState({
-    username: '', // Corrected from name to username
-    email: '',
-    password: ''
-  });
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+
+    if (name === 'username') {
+      setUsername(value);
+    } else if (name === 'email') {
+      setEmail(value);
+    } else if (name === 'password') {
+      setPassword(value);
+    }
   };
 
   const handleSubmit = (e) => {
@@ -20,27 +25,32 @@ const RegistrationForm = () => {
     const validationErrors = {};
     let isValid = true;
 
-    // Check for empty fields
-    Object.keys(formData).forEach((field) => {
-      if (!formData[field]) {
-        validationErrors[field] = `${field} is required`;
-        isValid = false;
-      }
-    });
+    if (!username) {
+      validationErrors.username = 'Username is required';
+      isValid = false;
+    }
+    if (!email) {
+      validationErrors.email = 'Email is required';
+      isValid = false;
+    }
+    if (!password) {
+      validationErrors.password = 'Password is required';
+      isValid = false;
+    }
 
     setErrors(validationErrors);
 
     if (isValid) {
       // Submit the form (e.g., send data to the server)
-      console.log("Form data submitted:", formData);
+      console.log('Form data submitted:', { username, email, password });
     }
   };
 
   return (
     <>
-      <p>Username: {formData.username}</p>
-      <p>Email: {formData.email}</p>
-      <p>Password: {formData.password}</p>
+      <p>Username: {username}</p>
+      <p>Email: {email}</p>
+      <p>Password: {password}</p>
 
       <form onSubmit={handleSubmit}>
         <div>
@@ -48,12 +58,12 @@ const RegistrationForm = () => {
             Username:
             <input
               type="text"
-              name="username" // Corrected from name to username
-              value={formData.username}
+              name="username"
+              value={username}
               onChange={handleChange}
             />
           </label>
-          {errors.username && <span style={{ color: "red" }}>{errors.username}</span>}
+          {errors.username && <span style={{ color: 'red' }}>{errors.username}</span>}
         </div>
 
         <div>
@@ -62,11 +72,11 @@ const RegistrationForm = () => {
             <input
               type="email"
               name="email"
-              value={formData.email}
+              value={email}
               onChange={handleChange}
             />
           </label>
-          {errors.email && <span style={{ color: "red" }}>{errors.email}</span>}
+          {errors.email && <span style={{ color: 'red' }}>{errors.email}</span>}
         </div>
 
         <div>
@@ -75,11 +85,11 @@ const RegistrationForm = () => {
             <input
               type="password"
               name="password"
-              value={formData.password}
+              value={password}
               onChange={handleChange}
             />
           </label>
-          {errors.password && <span style={{ color: "red" }}>{errors.password}</span>}
+          {errors.password && <span style={{ color: 'red' }}>{errors.password}</span>}
         </div>
 
         <button type="submit">Submit</button>
