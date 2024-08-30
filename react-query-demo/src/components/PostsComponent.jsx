@@ -8,10 +8,19 @@ async function fetchPosts(){
   return data
 }
 const PostsComponent = () => {
-    // Use the useQuery hook to handle data fetching and caching
-    const { data, error, isLoading, isError, refetch } = useQuery('posts', fetchPosts);
-
-    // Handle loading state
+  // Use the useQuery hook with additional options for data fetching and caching
+  const { data, error, isLoading, isError, refetch } = useQuery(
+    'posts', // Query key
+    fetchPosts, // Fetch function
+    {
+      cacheTime: 1000 * 60 * 10, // Cache time (10 minutes)
+      staleTime: 1000 * 60 * 5, // Stale time (5 minutes)
+      refetchOnWindowFocus: false, // Do not refetch on window focus
+      keepPreviousData: true, // Keep previous data while fetching new data
+    }
+  );
+  
+  // Handle loading state
     if (isLoading){
       return <div>Loading...</div>;
     } 
@@ -27,7 +36,8 @@ const PostsComponent = () => {
             <ul>
               {data.map((post, index) => {
                 return (
-                <li key={index}>{post.title}
+                <li key={index}>
+                  <h3>{post.title}</h3>
                   <p style={{color: 'red'}}>{post.body}</p>
                 </li>
                 )
