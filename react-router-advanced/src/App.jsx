@@ -22,8 +22,6 @@ const App = () => {
             <Profile />
           </ProtectedRoute>
         }>
-          <Route path="profile-details" element={<ProfileDetails />} />
-          <Route path="profile-settings" element={<ProfileSettings />} />
         </Route>
         <Route path="/user/:userId" element={<UserProfile />} />
       </Routes>
