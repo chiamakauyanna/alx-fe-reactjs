@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 
 const TodoList = () => {
   const [itemData, setItemData] = useState({ text: '' });
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState([
+    { text: 'Learn React', completed: false },
+    { text: 'Build a Todo App', completed: false },
+    { text: 'Write Tests', completed: false }
+  ]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
