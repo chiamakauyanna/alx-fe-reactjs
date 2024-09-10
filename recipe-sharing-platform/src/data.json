@@ -3,12 +3,77 @@
     "id": 1,
     "title": "Spaghetti Carbonara",
     "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-    "image": "https://via.placeholder.com/150"
+    "image": "https://via.placeholder.com/150",
+    "ingredients": [
+      "200g spaghetti",
+      "100g pancetta or bacon",
+      "2 large eggs",
+      "50g pecorino cheese",
+      "50g parmesan cheese",
+      "Freshly ground black pepper",
+      "Salt"
+    ],
+    "instructions": [
+      "Cook the spaghetti in a large pot of salted boiling water until al dente.",
+      "Meanwhile, fry the pancetta or bacon in a large pan until crispy.",
+      "In a small bowl, beat the eggs and mix with the grated pecorino and parmesan cheeses.",
+      "Drain the spaghetti, reserving some of the cooking water.",
+      "Add the spaghetti to the pan with the pancetta, then remove the pan from the heat.",
+      "Quickly stir in the egg and cheese mixture, adding a little reserved pasta water to create a creamy sauce.",
+      "Season with freshly ground black pepper and salt to taste.",
+      "Serve immediately with extra cheese on top."
+    ]
   },
   {
     "id": 2,
     "title": "Chicken Tikka Masala",
-    "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
-    "image": "https://via.placeholder.com/150"
+    "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato-based gravy.",
+    "image": "https://via.placeholder.com/150",
+    "ingredients": [
+      "500g chicken breast, cut into cubes",
+      "200g plain yogurt",
+      "1 tbsp ginger-garlic paste",
+      "1 tbsp garam masala",
+      "2 tsp turmeric powder",
+      "2 tsp chili powder",
+      "1 onion, finely chopped",
+      "400g canned tomatoes",
+      "200ml cream",
+      "2 tbsp butter",
+      "Fresh coriander for garnish"
+    ],
+    "instructions": [
+      "Marinate the chicken with yogurt, ginger-garlic paste, garam masala, turmeric, and chili powder for at least 1 hour.",
+      "Grill or cook the chicken on a high heat until cooked through and slightly charred.",
+      "In a large pan, melt the butter and fry the chopped onions until golden.",
+      "Add the canned tomatoes and cook until the sauce thickens.",
+      "Stir in the cream and add the grilled chicken pieces to the sauce.",
+      "Simmer for 10-15 minutes, stirring occasionally, until the chicken is tender and the flavors have melded.",
+      "Garnish with fresh coriander and serve with rice or naan."
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Margherita Pizza",
+    "summary": "A simple yet delicious pizza made with fresh mozzarella, basil, and tomatoes.",
+    "image": "https://via.placeholder.com/150",
+    "ingredients": [
+      "1 pizza dough ball",
+      "200g fresh mozzarella cheese",
+      "2 ripe tomatoes, thinly sliced",
+      "Fresh basil leaves",
+      "Olive oil",
+      "Salt",
+      "Pepper"
+    ],
+    "instructions": [
+      "Preheat the oven to the highest setting, preferably with a pizza stone inside.",
+      "Roll out the pizza dough on a lightly floured surface.",
+      "Spread a thin layer of olive oil on the dough and arrange the tomato slices on top.",
+      "Tear the mozzarella into small pieces and distribute evenly over the pizza.",
+      "Bake the pizza in the oven for 8-10 minutes, or until the crust is golden and the cheese has melted.",
+      "Remove from the oven, add fresh basil leaves, and season with salt and pepper.",
+      "Drizzle with extra olive oil and serve immediately."
+    ]
   }
 ]
