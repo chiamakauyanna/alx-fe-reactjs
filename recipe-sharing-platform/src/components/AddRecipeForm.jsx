@@ -4,7 +4,7 @@ const AddRecipeForm = () => {
   const [formData, setFormData] = useState({
     title: '',
     ingredients: '',
-    instructions: '',
+    steps: '',
   });
 
   const [errors, setErrors] = useState({});
@@ -31,8 +31,8 @@ const AddRecipeForm = () => {
       formErrors.ingredients = 'Please provide at least two ingredients';
     }
 
-    if (!formData.instructions) {
-      formErrors.instructions = 'Instructions is required';
+    if (!formData.steps) {
+      formErrors.steps = 'steps is required';
     }
 
     setErrors(formErrors);
@@ -81,16 +81,16 @@ const AddRecipeForm = () => {
           {errors.ingredients && <p className="text-red-500 text-sm">{errors.ingredients}</p>}
         </div>
 
-        {/* Instructions */}
+        {/* steps */}
         <div>
-          <label className="block text-sm font-medium text-gray-700">Instructions</label>
+          <label className="block text-sm font-medium text-gray-700">steps</label>
           <textarea
-            name="instructions"
-            value={formData.instructions}
+            name="steps"
+            value={formData.steps}
             onChange={handleChange}
             className="mt-1 p-2 block w-[15rem] md:w-[20rem] border border-gray-300 rounded-md"
           />
-          {errors.instructions && <p className="text-red-500 text-sm">{errors.instructions}</p>}
+          {errors.steps && <p className="text-red-500 text-sm">{errors.steps}</p>}
         </div>
 
         {/* Submit Button */}
