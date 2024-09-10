@@ -53,10 +53,11 @@ const AddRecipeForm = () => {
 
   return (
     <div className='container m-auto h-screen flex flex-col items-center justify-center'>
-      <h1 className='mb-5 uppercase font-bold '>Add your favourite recipes</h1>
+     <div className='shadow p-8'>
+     <h1 className='mb-5 uppercase font-bold text-green-800'>Add your favourite recipes</h1>
       <form onSubmit={handleSubmit} className=' flex
     flex-col'>
-      <div className=''>
+      <div>
           <label className="block text-sm font-medium text-gray-700">Recipe Title</label>
           <input
             type="text"
@@ -103,6 +104,7 @@ const AddRecipeForm = () => {
           </button>
         </div>
       </form>
+     </div>
     </div>
   )
 }
