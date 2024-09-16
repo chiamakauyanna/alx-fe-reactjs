@@ -12,7 +12,7 @@ const HomePage = () => {
     return (
         <div className="bg-green-950 min-h-screen w-screen py-7">
             {/* Responsive Grid Layout */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-8 md:px-10">
                 {data.map((recipe) => (
                     <div 
                         key={recipe.id} 
