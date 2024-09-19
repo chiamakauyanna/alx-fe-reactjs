@@ -1,9 +1,12 @@
+// src/components/Search.jsx
 import React, { useState } from 'react';
 import fetchUserData from '../services/githubService';
 
 const Search = () => {
   const [username, setUsername] = useState('');
-  const [userData, setUserData] = useState(null);
+  const [location, setLocation] = useState('');
+  const [minRepos, setMinRepos] = useState('');
+  const [userData, setUserData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -12,41 +15,74 @@ const Search = () => {
     setLoading(true);
     setError(null);
     try {
-      const data = await fetchUserData(username);
+      const data = await fetchUserData(username, location, minRepos);
       setUserData(data);
     } catch (err) {
-      setError("Looks like we cant find the user");
+      setError('Looks like we can’t find any users');
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className='text-center mt-4'>
-      <form onSubmit={handleSubmit}>
-        <input
+    <div className="max-w-4xl mx-auto p-4">
+      <h1 className="text-2xl font-bold mb-4 text-gray-50 text-center pt-3">GitHub User Search</h1>
+      <form onSubmit={handleSubmit} className="space-y-3 flex flex-col items-center">
+        <div>
+          <label className="block text-md text-white font-medium">Username:</label>
+          <input
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            placeholder="Search GitHub User"
-            className='py-1 rounded-l-lg px-2'
+            className="mt-1 block w-72 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            placeholder="GitHub Username"
           />
-          <button  type="submit" className='bg-blue-500 px-3 py-1 rounded-r-lg text-white'>Search</button>
-          </form>
+        </div>
+        <div>
+          <label className="block text-md text-white font-medium">Location:</label>
+          <input
+            type="text"
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+            className="mt-1 block w-72 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            placeholder="Location"
+          />
+        </div>
+        <div>
+          <label className="block text-md text-white font-medium">Minimum Repositories:</label>
+          <input
+            type="number"
+            value={minRepos}
+            onChange={(e) => setMinRepos(e.target.value)}
+            className="mt-1 block w-72 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            placeholder="Minimum Repositories"
+          />
+        </div>
+        <button
+          type="submit"
+          className="w-72 bg-blue-700 text-white px-4 py-2 rounded-md hover:bg-indigo-700"
+        >
+          Search
+        </button>
+      </form>
 
-          {loading && <p>Loading...</p>}
-          {error && <p>{error}</p>}
-          {userData && (
-          <div>
-            <img src={userData.avatar_url} alt={userData.name} width="100" />
-            <h2>{userData.login}</h2>
-            <a href={userData.html_url} target="_blank" rel="noreferrer">
-              View Profile
-            </a>
+      {loading && <p className="mt-4 text-gray-500">Loading...</p>}
+      {error && <p className="mt-4 text-red-500">{error}</p>}
+      {userData.length > 0 && (
+        <div className="mt-4 space-y-4">
+          {userData.map(user => (
+            <div key={user.id} className="border p-4 rounded-lg shadow-md">
+              <img src={user.avatar_url} alt={user.login} className="w-24 h-24 rounded-full" />
+              <h2 className="text-lg font-semibold mt-2">{user.login}</h2>
+              <p className="text-sm text-gray-600">Location: {user.location || 'N/A'}</p>
+              <p className="text-sm text-gray-600">Repositories: {user.public_repos}</p>
+              <a href={user.html_url} target="_blank" rel="noreferrer" className="text-indigo-600 hover:underline mt-2 block">View Profile</a>
             </div>
-          )}
-     </div>
+          ))}
+        </div>
+      )}
+    </div>
   );
-}
+};
 
 export default Search;
