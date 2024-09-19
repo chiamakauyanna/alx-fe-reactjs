@@ -3,7 +3,7 @@ import Search from './components/Search';
 
 function App() {
   return (
-    <div className='container h-screen w-screen bg-gray-500 mx-auto '>
+    <div className='container mx-auto'>
       <Search />
     </div>
   );
