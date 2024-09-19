@@ -11,7 +11,7 @@ function Search() {
         `https://api.github.com/users/${query}`,
         {
           headers: {
-            Authorization: `Bearer ${import.meta.env.REACT_APP_GITHUB_API_KEY}`,
+            Authorization: `Bearer ${process.env.REACT_APP_GITHUB_API_KEY}`,
           },
         }
       );
@@ -24,15 +24,15 @@ function Search() {
   
 
   return (
-    <div>
-      <input
+    <div className='text-center mt-4'>
+     <input
         type="text"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Search GitHub User"
+        className='py-1 rounded-l-lg px-2'
       />
-      <button onClick={searchUser}>Search</button>
-
+      <button onClick={searchUser} className='bg-blue-500 px-3 py-1 rounded-r-lg text-white'>Search</button>
       {user && (
         <div>
           <h2>{user.login}</h2>
@@ -42,7 +42,7 @@ function Search() {
           </a>
         </div>
       )}
-    </div>
+     </div>
   );
 }
 
